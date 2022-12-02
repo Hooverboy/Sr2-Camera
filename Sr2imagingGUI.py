@@ -228,7 +228,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lineEditAvgNumber.textChanged.connect(self.avgNumberChanged)
         self.buttonSaveArray = QPushButton('Save array')
         self.buttonSaveArray.clicked.connect(self.saveArray)
-        self.imageArray = np.zeros((self.horSize,self.vertSize,20))
+        self.imageArray = np.zeros((self.horSize,self.vertSize,20)).astype('int')
         self.arrayFileNameText = 'Array_'
         self.lineEditArrayFileName = QLineEdit(self.arrayFileNameText)
         self.lineEditArrayFileName.textChanged.connect(self.arrayFileNameChanged)
@@ -260,7 +260,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.lastImage = self.camera.getImage().reshape((self.horSize,self.vertSize),order='F')
             # And then casting to float to avoid overflow errors later
-            self.lastImage = self.lastImage.astype('float')
+            self.lastImage = self.lastImage.astype('int')
         
         #update image array used in averaging
         self.imageArray = np.roll(self.imageArray,shift=1,axis=2)
