@@ -388,7 +388,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def checkDivideState(self,state):
         if state == Qt.Checked:
             self.divideBackgroundBool = True
-            self.updateBG()
+            # self.updateBG()
         else:
             self.divideBackgroundBool = False
             
