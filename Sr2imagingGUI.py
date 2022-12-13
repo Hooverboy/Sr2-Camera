@@ -348,8 +348,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.FlourLabel2.setText(f'center flour: {self.avgFlour2:.2f}')
         
     def updateROI(self):
-        self.topDataBox = self.ROItop.getArrayRegion(self.lastImage, self.img)
-        self.bottomDataBox = self.ROIbottom.getArrayRegion(self.lastImage, self.img)
+        self.topDataBox = self.ROItop.getArrayRegion(self.displayImage, self.img)
+        self.bottomDataBox = self.ROIbottom.getArrayRegion(self.displayImage, self.img)
         
         
         
